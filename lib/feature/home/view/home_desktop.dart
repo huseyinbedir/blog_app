@@ -1,5 +1,8 @@
+import 'package:blog_app/core/cubit/navigation_cubit.dart';
+import 'package:blog_app/core/navigation/router_const.dart';
 import 'package:blog_app/core/ui/my_icons_set_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeDesktop extends StatelessWidget {
   const HomeDesktop({super.key});
@@ -22,11 +25,11 @@ class HomeDesktop extends StatelessWidget {
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.symmetric(horizontal: 150),
-      child: contentRow(),
+      child: contentRow(context),
     ));
   }
 
-  Row contentRow() {
+  Row contentRow(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -49,18 +52,13 @@ class HomeDesktop extends StatelessWidget {
               children: [
                 userCard(),
                 Expanded(
-                  child: SizedBox(
+                  child: AnimatedContainer(
+                    duration: const Duration(seconds: 5),
                     height: 600,
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(30),
-                            bottomRight: Radius.circular(30),
-                            topLeft: Radius.circular(30),
-                            bottomLeft: Radius.circular(30)),
-                        color: Color(0xff222222),
-                      ),
-                    ),
+                    child: BlocBuilder<NavigationCubit, Widget>(
+                        builder: (context, state) {
+                      return state;
+                    }),
                   ),
                 ),
               ],
@@ -70,7 +68,7 @@ class HomeDesktop extends StatelessWidget {
         const SizedBox(
           width: 20,
         ),
-        rightMenu(),
+        rightMenu(context),
       ],
     );
   }
@@ -149,10 +147,6 @@ class HomeDesktop extends StatelessWidget {
               width: 150,
               child: OutlinedButton(
                 onPressed: () {},
-                child: Text(
-                  "Cv Görüntüle",
-                  style: TextStyle(color: Colors.white),
-                ),
                 style: ButtonStyle(
                   side: MaterialStateProperty.all(
                       const BorderSide(color: Colors.white, width: 2)),
@@ -161,6 +155,10 @@ class HomeDesktop extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30.0),
                     ),
                   ),
+                ),
+                child: const Text(
+                  "Cv Görüntüle",
+                  style: TextStyle(color: Colors.white),
                 ),
               ),
             ),
@@ -177,7 +175,7 @@ class HomeDesktop extends StatelessWidget {
     );
   }
 
-  Column rightMenu() {
+  Column rightMenu(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -194,12 +192,18 @@ class HomeDesktop extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  menuItem("Home", MyIconsSet.home, "home"),
-                  menuItem("Profile", MyIconsSet.user, "home"),
-                  menuItem("Education", MyIconsSet.graduationHat, "home"),
-                  menuItem("Work", MyIconsSet.briefcase, "home"),
-                  menuItem("Blog", MyIconsSet.book, "home"),
-                  menuItem("Contanct", MyIconsSet.envelope, "home"),
+                  menuItem(
+                      context, "Home", MyIconsSet.home, RouterConst.profile),
+                  menuItem(
+                      context, "Profile", MyIconsSet.user, RouterConst.profile),
+                  menuItem(context, "Education", MyIconsSet.graduationHat,
+                      RouterConst.profile),
+                  menuItem(context, "Work", MyIconsSet.briefcase,
+                      RouterConst.profile),
+                  menuItem(
+                      context, "Blog", MyIconsSet.book, RouterConst.profile),
+                  menuItem(context, "Contact", MyIconsSet.envelope,
+                      RouterConst.profile),
                 ],
               ),
             ),
@@ -207,16 +211,19 @@ class HomeDesktop extends StatelessWidget {
         ),
         const SizedBox(
           height: 250,
-        ),
+        )
       ],
     );
   }
 
-  IconButton menuItem(String tooltip, IconData icon, String root) {
+  IconButton menuItem(
+      BuildContext context, String tooltip, IconData icon, String root) {
     return IconButton(
         tooltip: tooltip,
         padding: const EdgeInsets.all(0),
-        onPressed: () {},
+        onPressed: () {
+          BlocProvider.of<NavigationCubit>(context).changeToPage(root);
+        },
         icon: Icon(
           icon,
           size: 30,
