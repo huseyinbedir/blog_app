@@ -78,11 +78,101 @@ class HomeDesktop extends StatelessWidget {
   Container userCard() {
     return Container(
       width: 300,
-      padding: const EdgeInsets.all(10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: const [],
+      height: 800,
+      padding: const EdgeInsets.only(top: 50, bottom: 10),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const CircleAvatar(
+                  radius: 80,
+                  backgroundImage: AssetImage("assets/img/main_photo.jpg"),
+                ),
+                const SizedBox(
+                  height: 25,
+                ),
+                const Text(
+                  "Hüseyin Bedir",
+                  style: TextStyle(
+                      color: Color(0xfff5f5f5),
+                      fontSize: 28,
+                      fontWeight: FontWeight.w900,
+                      letterSpacing: 1.2,
+                      wordSpacing: 1.2),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Text(
+                  "Flutter Developer",
+                  style: TextStyle(color: Color(0xffbbbbbb), fontSize: 18),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(
+                      MyIconsSet.facebook,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Icon(
+                      MyIconsSet.twitter,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Icon(
+                      MyIconsSet.linkedin,
+                      color: Colors.white,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            SizedBox(
+              height: 50,
+              width: 150,
+              child: OutlinedButton(
+                onPressed: () {},
+                child: Text(
+                  "Cv Görüntüle",
+                  style: TextStyle(color: Colors.white),
+                ),
+                style: ButtonStyle(
+                  side: MaterialStateProperty.all(
+                      const BorderSide(color: Colors.white, width: 2)),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            const Text(
+              "©2022 All rights reserved.",
+              style: TextStyle(color: Color(0xffbbbbbb)),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -117,7 +207,7 @@ class HomeDesktop extends StatelessWidget {
         ),
         const SizedBox(
           height: 250,
-        )
+        ),
       ],
     );
   }
