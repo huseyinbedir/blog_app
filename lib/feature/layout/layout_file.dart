@@ -10,7 +10,7 @@ class Layouts extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constrait) {
-        if (constrait.maxWidth < 1000) {
+        if (constrait.maxWidth < 1200) {
           return mobileApp;
         } else {
           return desktopApp;

@@ -24,59 +24,62 @@ class HomeDesktop extends StatelessWidget {
           )),
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
-      padding: const EdgeInsets.symmetric(horizontal: 150),
-      child: contentRow(context),
+      child: Center(child: contentRow(context)),
     ));
   }
 
-  Row contentRow(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        Expanded(
-          child: Container(
-            decoration: const BoxDecoration(
-                color: Color(0xff444444),
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30),
-                    bottomRight: Radius.circular(30),
-                    bottomLeft: Radius.circular(30))),
-            height: 600,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                userCard(),
-                Expanded(
-                  child: AnimatedContainer(
-                    duration: const Duration(seconds: 5),
-                    height: 600,
-                    child: BlocBuilder<NavigationCubit, Widget>(
-                        builder: (context, state) {
-                      return state;
-                    }),
+  SizedBox contentRow(BuildContext context) {
+    return SizedBox(
+      width: MediaQuery.of(context).size.width - 300,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Expanded(
+            child: Container(
+              decoration: const BoxDecoration(
+                  color: Color(0xff444444),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
+                      bottomRight: Radius.circular(30),
+                      bottomLeft: Radius.circular(30))),
+              height: 750,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  userCard(),
+                  Expanded(
+                    flex: 1,
+                    child: AnimatedContainer(
+                      duration: const Duration(seconds: 5),
+                      height: 750,
+                      child: BlocBuilder<NavigationCubit, Widget>(
+                          builder: (context, state) {
+                        return state;
+                      }),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        ),
-        const SizedBox(
-          width: 20,
-        ),
-        rightMenu(context),
-      ],
+          const SizedBox(
+            width: 20,
+          ),
+          rightMenu(context),
+        ],
+      ),
     );
   }
 
   Container userCard() {
     return Container(
-      width: 300,
-      height: 800,
+      width: 350,
+      height: 750,
       padding: const EdgeInsets.only(top: 50, bottom: 10),
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -163,7 +166,7 @@ class HomeDesktop extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 50,
+              height: 250,
             ),
             const Text(
               "©2022 All rights reserved.",
@@ -209,7 +212,7 @@ class HomeDesktop extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: 250,
+          height: 400,
         )
       ],
     );
@@ -225,7 +228,7 @@ class HomeDesktop extends StatelessWidget {
         },
         icon: Icon(
           icon,
-          size: 30,
+          size: 26,
           color: BlocProvider.of<NavigationCubit>(context, listen: true)
                       .rootName ==
                   root

@@ -1,5 +1,5 @@
 class RouterConst {
-  static const String homePage = "/";
+  static const String homePage = "/default";
   static const String profile = "/profile";
   static const String education = "/education";
   static const String work = "/work";

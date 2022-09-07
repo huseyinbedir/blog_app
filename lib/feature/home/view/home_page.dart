@@ -9,10 +9,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        extendBodyBehindAppBar: true,
+        extendBodyBehindAppBar: false,
         appBar: AppBar(
           toolbarHeight: 150,
-          backgroundColor: const Color(0xff222222),
+          backgroundColor: Colors.transparent,
           elevation: 0,
           actions: [
             Container(
