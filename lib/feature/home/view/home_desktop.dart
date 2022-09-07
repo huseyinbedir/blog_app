@@ -193,17 +193,16 @@ class HomeDesktop extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   menuItem(
-                      context, "Home", MyIconsSet.home, RouterConst.profile),
+                      context, "Home", MyIconsSet.home, RouterConst.homePage),
                   menuItem(
                       context, "Profile", MyIconsSet.user, RouterConst.profile),
                   menuItem(context, "Education", MyIconsSet.graduationHat,
-                      RouterConst.profile),
-                  menuItem(context, "Work", MyIconsSet.briefcase,
-                      RouterConst.profile),
+                      RouterConst.education),
                   menuItem(
-                      context, "Blog", MyIconsSet.book, RouterConst.profile),
+                      context, "Work", MyIconsSet.briefcase, RouterConst.work),
+                  menuItem(context, "Blog", MyIconsSet.book, RouterConst.blog),
                   menuItem(context, "Contact", MyIconsSet.envelope,
-                      RouterConst.profile),
+                      RouterConst.contact),
                 ],
               ),
             ),
@@ -227,7 +226,11 @@ class HomeDesktop extends StatelessWidget {
         icon: Icon(
           icon,
           size: 30,
-          color: const Color(0xffafb0b1),
+          color: BlocProvider.of<NavigationCubit>(context, listen: true)
+                      .rootName ==
+                  root
+              ? Colors.tealAccent
+              : const Color(0xffafb0b1),
         ));
   }
 }

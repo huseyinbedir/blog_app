@@ -7,8 +7,9 @@ class NavigationCubit extends Cubit<Widget> {
   NavigationCubit() : super(const SizedBox());
 
   Map<String, Widget> navigation = {RouterConst.profile: const ProfilePage()};
-
+  String rootName = "";
   void changeToPage(String root) {
     emit(navigation[root]!);
+    rootName = root;
   }
 }
