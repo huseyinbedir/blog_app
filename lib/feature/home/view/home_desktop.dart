@@ -1,8 +1,14 @@
+import 'dart:convert';
+import 'dart:developer';
+import 'dart:html';
+
 import 'package:blog_app/core/cubit/navigation_cubit.dart';
 import 'package:blog_app/core/navigation/router_const.dart';
 import 'package:blog_app/core/ui/my_icons_set_icons.dart';
+import 'package:blog_app/production/user_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:http/http.dart' as http;
 
 class HomeDesktop extends StatelessWidget {
   const HomeDesktop({super.key});
@@ -52,7 +58,7 @@ class HomeDesktop extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  userCard(),
+                  userCard(context),
                   Expanded(
                     flex: 1,
                     child: AnimatedContainer(
@@ -73,108 +79,6 @@ class HomeDesktop extends StatelessWidget {
           ),
           rightMenu(context),
         ],
-      ),
-    );
-  }
-
-  Container userCard() {
-    return Container(
-      width: 350,
-      height: 750,
-      padding: const EdgeInsets.only(top: 50, bottom: 10),
-      child: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const CircleAvatar(
-                  radius: 80,
-                  backgroundImage: AssetImage("assets/img/main_photo.jpg"),
-                ),
-                const SizedBox(
-                  height: 25,
-                ),
-                const Text(
-                  "Hüseyin Bedir",
-                  style: TextStyle(
-                      color: Color(0xfff5f5f5),
-                      fontSize: 28,
-                      fontWeight: FontWeight.w900,
-                      letterSpacing: 1.2,
-                      wordSpacing: 1.2),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const Text(
-                  "Flutter Developer",
-                  style: TextStyle(color: Color(0xffbbbbbb), fontSize: 18),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Icon(
-                      MyIconsSet.facebook,
-                      color: Colors.white,
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Icon(
-                      MyIconsSet.twitter,
-                      color: Colors.white,
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Icon(
-                      MyIconsSet.linkedin,
-                      color: Colors.white,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 50,
-            ),
-            SizedBox(
-              height: 50,
-              width: 150,
-              child: OutlinedButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                  side: MaterialStateProperty.all(
-                      const BorderSide(color: Colors.white, width: 2)),
-                  shape: MaterialStateProperty.all(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                  ),
-                ),
-                child: const Text(
-                  "Cv Görüntüle",
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 50,
-            ),
-            const Text(
-              "©2022 All rights reserved.",
-              style: TextStyle(color: Color(0xffbbbbbb)),
-            )
-          ],
-        ),
       ),
     );
   }

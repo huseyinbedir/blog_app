@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
         title: "Blog Ap",
         theme: ThemeData(fontFamily: "Poppins"),
         debugShowCheckedModeBanner: false,
-        home: const Layouts(
-          desktopApp: HomeDesktop(),
+        home: Layouts(
+          desktopApp: const HomeDesktop(),
           mobileApp: HomePage(),
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:blog_app/feature/work/view/work_detail.dart';
 import 'package:flutter/material.dart';
 
 class WorkPage extends StatefulWidget {
@@ -67,17 +68,88 @@ class _WorkPageState extends State<WorkPage> {
                   ],
                 ),
               ),
-              const Expanded(
+              Expanded(
                 child: TabBarView(children: [
-                  Text("bbbb"),
-                  Text("bbbb"),
-                  Text("ccc"),
+                  _mobileApp(context),
+                  const Text("bbbb"),
+                  const Text("ccc"),
                 ]),
               )
             ],
           ),
         ),
       ),
+    );
+  }
+
+  _mobileApp(context) {
+    List<Map> mobileApp = [
+      {
+        "name": "B2b Project",
+        "image":
+            "https://www.zohowebstatic.com/sites/default/files/zoho_general_pages/zh-mobileapp.png"
+      },
+      {
+        "name": "B2b Project",
+        "image": "https://miro.medium.com/max/910/1*qML0C4wyJu1kFbF0OJ3CiQ.jpeg"
+      },
+      {
+        "name": "B2b Project",
+        "image": "https://miro.medium.com/max/910/1*qML0C4wyJu1kFbF0OJ3CiQ.jpeg"
+      },
+      {
+        "name": "B2b Project 22",
+        "image": "https://miro.medium.com/max/910/1*qML0C4wyJu1kFbF0OJ3CiQ.jpeg"
+      },
+      {
+        "name": "B2b Project",
+        "image": "https://miro.medium.com/max/910/1*qML0C4wyJu1kFbF0OJ3CiQ.jpeg"
+      }
+    ];
+    return GridView.extent(
+        maxCrossAxisExtent: 130.0,
+        crossAxisSpacing: 20.0,
+        mainAxisSpacing: 20.0,
+        children: mobileApp
+            .map((el) => GestureDetector(
+                  onTap: () {
+                    _showDialog(context);
+                  },
+                  child: Card(
+                    color: const Color(0xff444444),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: NetworkImage(el['image']),
+                              fit: BoxFit.fill)),
+                      child: Container(
+                        alignment: Alignment.bottomCenter,
+                        child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              el['name'],
+                              style: const TextStyle(
+                                color: Colors.white,
+                                backgroundColor: Colors.black,
+                              ),
+                            )),
+                      ),
+                    ),
+                  ),
+                ))
+            .toList());
+  }
+
+  void _showDialog(context) {
+    showGeneralDialog(
+      context: context,
+      barrierColor: Color(0xff222222), // Background color
+      barrierDismissible: false,
+      barrierLabel: 'Dialog',
+      transitionDuration: Duration(milliseconds: 400),
+      pageBuilder: (_, __, ___) {
+        return const WorkDetail();
+      },
     );
   }
 }
