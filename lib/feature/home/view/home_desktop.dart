@@ -31,6 +31,7 @@ class HomeDesktop extends StatelessWidget {
   SizedBox contentRow(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width - 300,
+      height: MediaQuery.of(context).size.height - 200,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -166,7 +167,7 @@ class HomeDesktop extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 250,
+              height: 50,
             ),
             const Text(
               "©2022 All rights reserved.",
@@ -180,7 +181,7 @@ class HomeDesktop extends StatelessWidget {
 
   Column rightMenu(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         SizedBox(
           width: 80,
@@ -211,9 +212,6 @@ class HomeDesktop extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(
-          height: 400,
-        )
       ],
     );
   }

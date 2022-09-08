@@ -31,4 +31,6 @@ class MyIconsSet {
       IconData(0xf0e1, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData home =
       IconData(0xf35f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData infinity =
+      IconData(0xf534, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

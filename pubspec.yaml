@@ -68,6 +68,12 @@ flutter:
      - assets/img/main_bg.png
      - assets/img/main_photo.jpg
      - assets/lottie/loading.json
+     - assets/img/flutter.png
+     - assets/img/node.png
+     - assets/img/php.png
+     - assets/img/react.png
+     - assets/img/dart.png
+     - assets/img/sql.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
