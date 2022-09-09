@@ -202,13 +202,14 @@ class _WorkDetailState extends State<WorkDetail> {
       margin: const EdgeInsets.only(right: 50),
       alignment: Alignment.topRight,
       child: IconButton(
-          splashRadius: 60,
+          color: Colors.blue,
+          splashRadius: 100,
           onPressed: () {
             Navigator.pop(context);
           },
           icon: const Icon(
             Icons.cancel,
-            size: 50,
+            size: 20,
             color: Color(0xfff5f5f5),
           )),
     );

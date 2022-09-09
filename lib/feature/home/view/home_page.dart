@@ -15,24 +15,9 @@ class HomePage extends StatelessWidget {
           backgroundColor: const Color(0xff444444),
           child: userCard(context, isMenu: true),
         ),
-        extendBodyBehindAppBar: false,
+        extendBodyBehindAppBar: true,
         appBar: AppBar(
           leading: const SizedBox(),
-          title: RichText(
-              text: const TextSpan(children: [
-            TextSpan(
-                text: "H",
-                style: TextStyle(
-                    color: Color(0xfff5f5f5),
-                    fontSize: 25,
-                    fontWeight: FontWeight.w900)),
-            TextSpan(
-                text: "B",
-                style: TextStyle(
-                    color: Color(0xff04b4e0),
-                    fontSize: 25,
-                    fontWeight: FontWeight.w900))
-          ])),
           centerTitle: true,
           toolbarHeight: 80,
           backgroundColor: Colors.transparent,

@@ -18,7 +18,7 @@ class EducationPage extends StatelessWidget {
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
-          padding: const EdgeInsets.all(30),
+          padding: const EdgeInsets.all(90),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -62,23 +62,23 @@ class EducationPage extends StatelessWidget {
                           ],
                           indicatorColor: const Color(0xffbbbbbb),
                           children: [
-                            Container(
-                              padding: const EdgeInsets.only(top: 20),
-                              height: 90,
-                              child: const Text(
-                                  " 2019 - Deniz Yıldızları Anadolu Teknik Lisesi \n Bilgisayar Bölümü \n Web Tasarım Dalı",
+                            const SizedBox(
+                              child: Text(
+                                  " 2022 - İstanbul Üniversitesi  Tarih",
                                   style: TextStyle(color: Color(0xffbbbbbb))),
                             ),
                             Container(
                               padding: const EdgeInsets.only(top: 20),
-                              height: 90,
+                              height: 100,
                               child: const Text(
                                   " 2021 - Sakarya Üniversitesi \n Uzaktan Eğitim Fakultesi \n Bilgisayar Programcılığı",
                                   style: TextStyle(color: Color(0xffbbbbbb))),
                             ),
-                            const SizedBox(
-                              child: Text(
-                                  " 2022 - İstanbul Üniversitesi  Tarih",
+                            Container(
+                              padding: const EdgeInsets.only(top: 20),
+                              height: 100,
+                              child: const Text(
+                                  " 2019 - Deniz Yıldızları Anadolu Teknik Lisesi \n Bilgisayar Bölümü \n Web Tasarım Dalı",
                                   style: TextStyle(color: Color(0xffbbbbbb))),
                             ),
                           ],
@@ -112,7 +112,7 @@ class EducationPage extends StatelessWidget {
                         children: [
                           Container(
                             padding: const EdgeInsets.only(top: 20),
-                            height: 90,
+                            height: 100,
                             child: const Text(
                                 " 2017 - İnternetten Teknoloji Ltd Şti \n Flutter Developer",
                                 style: TextStyle(color: Color(0xffbbbbbb))),

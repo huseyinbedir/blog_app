@@ -55,7 +55,7 @@ class _WorkPageState extends State<WorkPage> {
       "name": "ISS Hesabım",
       "techology": "Flutter - Dart - NodeJs - PostgreSql",
       "description":
-          "u uygulama Türkiye’de bulunan ISS firmalarının abonelerinin kullanımına sunulmak amacıyla Flutter Flavor kullanılarak birden fazla firmaya özel olarak çıktı alınabilen Bloc state managment ve Nodejs Server üzerinden haberleşme sağlayan uygulamadır. Uygulama içerisinde kredi kartı kaydetme , paket süresi uzatma , abonelik bilgileri ve takibi , kullanım miktarları , faturalar gibi modüller bulunmaktadır. MasterPass benzeri altyapı ile web api üzerinden kayıtlı kart ile fatura ödeme işlemleri gerçekleşmektedir. Firebase cloud messaging ve flutter local notification paketleri ile bildirim işlemleri yönetilmektedir. ",
+          "Bu uygulama Türkiye’de bulunan ISS firmalarının abonelerinin kullanımına sunulmak amacıyla Flutter Flavor kullanılarak birden fazla firmaya özel olarak çıktı alınabilen Bloc state managment ve Nodejs Server üzerinden haberleşme sağlayan uygulamadır. Uygulama içerisinde kredi kartı kaydetme , paket süresi uzatma , abonelik bilgileri ve takibi , kullanım miktarları , faturalar gibi modüller bulunmaktadır. MasterPass benzeri altyapı ile web api üzerinden kayıtlı kart ile fatura ödeme işlemleri gerçekleşmektedir. Firebase cloud messaging ve flutter local notification paketleri ile bildirim işlemleri yönetilmektedir. ",
       "image": [
         "assets/project/mobile/xrealnet/xrealnet_3.png",
         "assets/project/mobile/xrealnet/xrealnet_4.png",
@@ -170,9 +170,13 @@ class _WorkPageState extends State<WorkPage> {
                   onTap: () {
                     _showDialog(context, el);
                   },
-                  child: Card(
-                    margin: EdgeInsets.all(0),
-                    color: const Color(0xff444444),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border:
+                          Border.all(color: const Color(0xff333333), width: 2),
+                      color: const Color(0xff444444),
+                    ),
+                    margin: const EdgeInsets.all(0),
                     child: Container(
                       decoration: BoxDecoration(
                           image: DecorationImage(

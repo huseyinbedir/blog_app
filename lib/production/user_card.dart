@@ -9,78 +9,91 @@ Container userCard(context, {bool isMenu = false}) {
   return Container(
     width: 350,
     height: 750,
-    padding: const EdgeInsets.only(top: 50, bottom: 10),
+    padding: EdgeInsets.only(top: isMenu ? 20 : 50, bottom: 10),
     child: SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
+          isMenu
+              ? Container(
+                  alignment: Alignment.topLeft,
+                  child: IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(
+                        Icons.arrow_back_ios_new_rounded,
+                        color: Color(0xffbbbbbb),
+                      )),
+                )
+              : const SizedBox(),
+          const CircleAvatar(
+            radius: 80,
+            backgroundImage: AssetImage("assets/img/myimage.jpg"),
+          ),
+          const SizedBox(
+            height: 25,
+          ),
+          const Text(
+            "Hüseyin Bedir",
+            style: TextStyle(
+                color: Color(0xfff5f5f5),
+                fontSize: 28,
+                fontWeight: FontWeight.w900,
+                letterSpacing: 1.2,
+                wordSpacing: 1.2),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          const Text(
+            "Flutter Developer",
+            style: TextStyle(color: Color(0xffbbbbbb), fontSize: 18),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          isMenu ? _getMenu(context) : const SizedBox(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const CircleAvatar(
-                radius: 80,
-                backgroundImage: AssetImage("assets/img/myimage.jpg"),
+              IconButton(
+                onPressed: () async {
+                  Uri uri = Uri.parse(
+                      "https://www.linkedin.com/in/h%C3%BCseyin-bedir-4b6880224/");
+                  if (!await launchUrl(uri)) {}
+                },
+                icon: const Icon(
+                  MyIconsSet.linkedin,
+                  color: Colors.white,
+                ),
               ),
               const SizedBox(
-                height: 25,
+                width: 20,
               ),
-              const Text(
-                "Hüseyin Bedir",
-                style: TextStyle(
-                    color: Color(0xfff5f5f5),
-                    fontSize: 28,
-                    fontWeight: FontWeight.w900,
-                    letterSpacing: 1.2,
-                    wordSpacing: 1.2),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  MyIconsSet.facebook,
+                  color: Colors.white,
+                ),
               ),
               const SizedBox(
-                height: 10,
+                width: 20,
               ),
-              const Text(
-                "Flutter Developer",
-                style: TextStyle(color: Color(0xffbbbbbb), fontSize: 18),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              isMenu ? _getMenu(context) : const SizedBox(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton(
-                    onPressed: () async {
-                      Uri uri = Uri.parse(
-                          "https://www.linkedin.com/in/h%C3%BCseyin-bedir-4b6880224/");
-                      if (!await launchUrl(uri)) {}
-                    },
-                    icon: const Icon(
-                      MyIconsSet.linkedin,
-                      color: Colors.white,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  const Icon(
-                    MyIconsSet.facebook,
-                    color: Colors.white,
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  const Icon(
-                    MyIconsSet.twitter,
-                    color: Colors.white,
-                  ),
-                ],
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  MyIconsSet.twitter,
+                  color: Colors.white,
+                ),
               ),
             ],
           ),
           const SizedBox(
-            height: 50,
+            height: 35,
           ),
           SizedBox(
             height: 50,
@@ -106,11 +119,14 @@ Container userCard(context, {bool isMenu = false}) {
             ),
           ),
           const SizedBox(
-            height: 50,
+            height: 150,
           ),
-          const Text(
-            "©2022 All rights reserved.",
-            style: TextStyle(color: Color(0xffbbbbbb)),
+          Container(
+            alignment: Alignment.bottomCenter,
+            child: const Text(
+              "©2022 All rights reserved.",
+              style: TextStyle(color: Color(0xffbbbbbb)),
+            ),
           )
         ],
       ),

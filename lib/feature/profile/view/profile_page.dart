@@ -25,7 +25,7 @@ class ProfilePage extends StatelessWidget {
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
-          padding: const EdgeInsets.all(30),
+          padding: const EdgeInsets.all(90),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -47,7 +47,7 @@ class ProfilePage extends StatelessWidget {
                 children: const [
                   Expanded(
                     child: Text(
-                      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                      "1993 Gebze’de doğdum. Lise eğitimimi bilişim teknolojileri alanı, web tasarım dalında yaptım. Askerlik görevimden sonra freelancer olarak web tasarımı ve backend api konularında çalıştım. Web ve mobil yazılım konularında kendimi geliştirdim. Sunucu yönetimi socket ve node serverlar ile mobil ve web tabanlı uygulamalar geliştirdim. Kendimi mobil yazılım üzerinde ileri seviyeye getirmek için geliştirmeye çalışmaktayım",
                       style: TextStyle(color: Color(0xffbbbbbb)),
                     ),
                   ),
