@@ -5,4 +5,5 @@ class RouterConst {
   static const String work = "/work";
   static const String blog = "/blog";
   static const String contact = "/contact";
+  static const String blogDetail = "/blogDetail";
 }

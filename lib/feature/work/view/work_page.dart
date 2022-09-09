@@ -1,3 +1,4 @@
+import 'package:blog_app/core/helper/helper_widgets.dart';
 import 'package:blog_app/feature/work/view/work_detail.dart';
 import 'package:flutter/material.dart';
 
@@ -9,10 +10,93 @@ class WorkPage extends StatefulWidget {
 }
 
 class _WorkPageState extends State<WorkPage> {
+  List<Map> mobileApp = [
+    {
+      "name": "B2b Mobil App",
+      "techology": "Flutter - Dart - Php - Mysql",
+      "description":
+          "Getx State Managment ve RestApi üzerinden geliştirdiğim bu uygulama firmadan firmalara alışveriş imkanı sağlayan eticaret uygulamasıdır. Uygulama içerisinde ürünler, kategoriler , ürün arama , sipariş , web api üzerinden online ödeme, sipairiş takibi gibi modüller bulunmaktadır. Firebase cloud messaging ile bildirim işlemleri sağlanmaktadır.",
+      "image": [
+        "assets/project/mobile/b2b/payment.png",
+        "assets/project/mobile/b2b/product_detail.png",
+        "assets/project/mobile/b2b/products.png"
+      ],
+      "url":
+          "https://play.google.com/store/apps/details?id=com.wicomtr.wi_b2b_app",
+      "date": "2020"
+    },
+    {
+      "name": "Cetvel Ön Muhasabe",
+      "techology": "Flutter - Dart - NodeJs - PostgreSql",
+      "description":
+          "Bloc State Managment ile geliştirmeye devam ettiğim ön muhasebe uygulamasıdır. İçeriğinde fatura, irsaliye,ürünler cariler , alış ve satış faturası oluşturma , teklif gibi modüller bulunmaktadır",
+      "image": [
+        "assets/project/mobile/cetvel/cetvel.jpg",
+        "assets/project/mobile/cetvel/cetvel2.jpg",
+        "assets/project/mobile/cetvel/cetvel4.jpg"
+      ],
+      "url": "-",
+      "date": "2021"
+    },
+    {
+      "name": "Wiradius",
+      "techology": "Flutter - Dart - NodeJs - PostgreSql",
+      "description":
+          "ISS firmalarının personelleri için geliştirdiğim bu uygulamada personellerin arkaplanda sürekli konum takip işlemlerinin yapılması (Java) , görev sistemi , saha cihazlarının (mikrotik , ubnt ) kontrolü, abone bilgileri gibi modüller bulunmaktadır. Bloc State Managment ile Nodejs Server üzerinden haberleşme sağlanmaktadır. Ayrıca Socket Server ile birlikte uygulama kullanıcısının anlık konum bilgileri alınmaktadır. Uygulama içerisinde google maps ile birlikte iss firmalarının cihaz konumları görüntülenebilir ve yol tarifi alınabilir.",
+      "image": [
+        "assets/project/mobile/wiradius/Frame1.png",
+        "assets/project/mobile/wiradius/Frame4.png",
+        "assets/project/mobile/wiradius/Frame6.png"
+      ],
+      "url": "-",
+      "date": "2021"
+    },
+    {
+      "name": "ISS Hesabım",
+      "techology": "Flutter - Dart - NodeJs - PostgreSql",
+      "description":
+          "u uygulama Türkiye’de bulunan ISS firmalarının abonelerinin kullanımına sunulmak amacıyla Flutter Flavor kullanılarak birden fazla firmaya özel olarak çıktı alınabilen Bloc state managment ve Nodejs Server üzerinden haberleşme sağlayan uygulamadır. Uygulama içerisinde kredi kartı kaydetme , paket süresi uzatma , abonelik bilgileri ve takibi , kullanım miktarları , faturalar gibi modüller bulunmaktadır. MasterPass benzeri altyapı ile web api üzerinden kayıtlı kart ile fatura ödeme işlemleri gerçekleşmektedir. Firebase cloud messaging ve flutter local notification paketleri ile bildirim işlemleri yönetilmektedir. ",
+      "image": [
+        "assets/project/mobile/xrealnet/xrealnet_3.png",
+        "assets/project/mobile/xrealnet/xrealnet_4.png",
+        "assets/project/mobile/xrealnet/xrealnet_5.png"
+      ],
+      "url":
+          "https://play.google.com/store/apps/details?id=com.wiradius.xrealnet_oim",
+      "date": "2022"
+    },
+  ];
+
+  List<Map> webApp = [
+    {
+      "name": "Berber Randevu",
+      "techology": "Php - Codeigniter - Jquery - Mysql",
+      "description":
+          "Kuaförler için online randevu oluşturma. Yönetim Paneli. Randevu takip",
+      "image": [
+        "assets/project/web/volkansaglam/volkansaglam1.png",
+        "assets/project/web/volkansaglam/volkansaglam2.png",
+        "assets/project/web/volkansaglam/volkansaglam3.png",
+        "assets/project/web/volkansaglam/volkansaglam4.png"
+      ],
+      "url": "https://volkansaglam.com.tr/",
+      "date": "2019"
+    },
+    {
+      "name": "Bayramoğlu Emlak",
+      "techology": "Php - Codeigniter - Jquery - Mysql",
+      "description": "Emlak tanıtım",
+      "image": [
+        "assets/project/web/bayramoglu/bayramoglu.png",
+      ],
+      "url": "https://bayramoglugyd.com/",
+      "date": "2021"
+    },
+  ];
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 2,
       child: Container(
         decoration: const BoxDecoration(
             color: Color(0xff222222),
@@ -28,13 +112,6 @@ class _WorkPageState extends State<WorkPage> {
             children: [
               RichText(
                   text: const TextSpan(children: [
-                TextSpan(
-                  text: "# ",
-                  style: TextStyle(
-                      color: Color(0xff04b4e0),
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold),
-                ),
                 TextSpan(
                   text: "Projeler",
                   style: TextStyle(
@@ -62,17 +139,18 @@ class _WorkPageState extends State<WorkPage> {
                     Tab(
                       child: Text("Web"),
                     ),
-                    Tab(
-                      child: Text("Backend"),
-                    )
                   ],
                 ),
               ),
               Expanded(
                 child: TabBarView(children: [
-                  _mobileApp(context),
-                  const Text("bbbb"),
-                  const Text("ccc"),
+                  _app(context, mobileApp),
+                  _app(context, webApp),
+                  /*Column(
+                    children: [
+                      alertContainer(context, "info", "Pek Yakında"),
+                    ],
+                  )*/
                 ]),
               )
             ],
@@ -82,57 +160,41 @@ class _WorkPageState extends State<WorkPage> {
     );
   }
 
-  _mobileApp(context) {
-    List<Map> mobileApp = [
-      {
-        "name": "B2b Project",
-        "image":
-            "https://www.zohowebstatic.com/sites/default/files/zoho_general_pages/zh-mobileapp.png"
-      },
-      {
-        "name": "B2b Project",
-        "image": "https://miro.medium.com/max/910/1*qML0C4wyJu1kFbF0OJ3CiQ.jpeg"
-      },
-      {
-        "name": "B2b Project",
-        "image": "https://miro.medium.com/max/910/1*qML0C4wyJu1kFbF0OJ3CiQ.jpeg"
-      },
-      {
-        "name": "B2b Project 22",
-        "image": "https://miro.medium.com/max/910/1*qML0C4wyJu1kFbF0OJ3CiQ.jpeg"
-      },
-      {
-        "name": "B2b Project",
-        "image": "https://miro.medium.com/max/910/1*qML0C4wyJu1kFbF0OJ3CiQ.jpeg"
-      }
-    ];
+  _app(BuildContext context, List<Map> app) {
     return GridView.extent(
-        maxCrossAxisExtent: 130.0,
+        maxCrossAxisExtent: 220.0,
         crossAxisSpacing: 20.0,
         mainAxisSpacing: 20.0,
-        children: mobileApp
+        children: app
             .map((el) => GestureDetector(
                   onTap: () {
-                    _showDialog(context);
+                    _showDialog(context, el);
                   },
                   child: Card(
+                    margin: EdgeInsets.all(0),
                     color: const Color(0xff444444),
                     child: Container(
                       decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: NetworkImage(el['image']),
-                              fit: BoxFit.fill)),
-                      child: Container(
-                        alignment: Alignment.bottomCenter,
-                        child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              el['name'],
-                              style: const TextStyle(
-                                color: Colors.white,
-                                backgroundColor: Colors.black,
-                              ),
-                            )),
+                              image: AssetImage(el['image'][0]),
+                              fit: BoxFit.cover)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Container(
+                            color: const Color(0xff444444),
+                            alignment: Alignment.bottomCenter,
+                            child: Padding(
+                                padding: const EdgeInsets.only(
+                                    top: 8, left: 8, right: 8, bottom: 0),
+                                child: Text(
+                                  el['name'],
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                )),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -140,15 +202,17 @@ class _WorkPageState extends State<WorkPage> {
             .toList());
   }
 
-  void _showDialog(context) {
+  void _showDialog(context, Map detail) {
     showGeneralDialog(
       context: context,
-      barrierColor: Color(0xff222222), // Background color
+      barrierColor: const Color(0xff222222), // Background color
       barrierDismissible: false,
       barrierLabel: 'Dialog',
-      transitionDuration: Duration(milliseconds: 400),
+      transitionDuration: const Duration(milliseconds: 400),
       pageBuilder: (_, __, ___) {
-        return const WorkDetail();
+        return WorkDetail(
+          detail: detail,
+        );
       },
     );
   }

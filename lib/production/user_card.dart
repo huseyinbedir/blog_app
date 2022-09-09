@@ -3,6 +3,7 @@ import 'package:blog_app/core/navigation/router_const.dart';
 import 'package:blog_app/core/ui/my_icons_set_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 Container userCard(context, {bool isMenu = false}) {
   return Container(
@@ -21,7 +22,7 @@ Container userCard(context, {bool isMenu = false}) {
             children: [
               const CircleAvatar(
                 radius: 80,
-                backgroundImage: AssetImage("assets/img/main_photo.jpg"),
+                backgroundImage: AssetImage("assets/img/myimage.jpg"),
               ),
               const SizedBox(
                 height: 25,
@@ -48,23 +49,30 @@ Container userCard(context, {bool isMenu = false}) {
               isMenu ? _getMenu(context) : const SizedBox(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Icon(
+                children: [
+                  IconButton(
+                    onPressed: () async {
+                      Uri uri = Uri.parse(
+                          "https://www.linkedin.com/in/h%C3%BCseyin-bedir-4b6880224/");
+                      if (!await launchUrl(uri)) {}
+                    },
+                    icon: const Icon(
+                      MyIconsSet.linkedin,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  const Icon(
                     MyIconsSet.facebook,
                     color: Colors.white,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
-                  Icon(
+                  const Icon(
                     MyIconsSet.twitter,
-                    color: Colors.white,
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Icon(
-                    MyIconsSet.linkedin,
                     color: Colors.white,
                   ),
                 ],
@@ -78,7 +86,10 @@ Container userCard(context, {bool isMenu = false}) {
             height: 50,
             width: 150,
             child: OutlinedButton(
-              onPressed: () {},
+              onPressed: () async {
+                Uri uri = Uri.parse("assets/cv/cv.pdf");
+                if (!await launchUrl(uri)) {}
+              },
               style: ButtonStyle(
                 side: MaterialStateProperty.all(
                     const BorderSide(color: Colors.white, width: 2)),
@@ -109,7 +120,7 @@ Container userCard(context, {bool isMenu = false}) {
 
 _getMenu(context) {
   return Container(
-    margin: EdgeInsets.only(bottom: 30),
+    margin: const EdgeInsets.only(bottom: 30),
     child: Column(
       children: [
         _menuItem(context, "Anasayfa", RouterConst.homePage),

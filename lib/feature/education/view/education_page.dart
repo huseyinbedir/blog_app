@@ -33,13 +33,6 @@ class EducationPage extends StatelessWidget {
                         RichText(
                             text: const TextSpan(children: [
                           TextSpan(
-                            text: "# ",
-                            style: TextStyle(
-                                color: Color(0xff04b4e0),
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          TextSpan(
                             text: "Eğitim",
                             style: TextStyle(
                                 color: Color(0xfff5f5f5),
@@ -48,7 +41,7 @@ class EducationPage extends StatelessWidget {
                           ),
                         ])),
                         Timeline(
-                          lineColor: Color(0xffbbbbbb),
+                          lineColor: const Color(0xffbbbbbb),
                           strokeWidth: 2,
                           indicators: const [
                             Icon(
@@ -100,13 +93,6 @@ class EducationPage extends StatelessWidget {
                       RichText(
                           text: const TextSpan(children: [
                         TextSpan(
-                          text: "# ",
-                          style: TextStyle(
-                              color: Color(0xff04b4e0),
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        TextSpan(
                           text: "Çalışma Hayatı",
                           style: TextStyle(
                               color: Color(0xfff5f5f5),
@@ -143,13 +129,6 @@ class EducationPage extends StatelessWidget {
               RichText(
                   text: const TextSpan(children: [
                 TextSpan(
-                  text: "# ",
-                  style: TextStyle(
-                      color: Color(0xff04b4e0),
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
-                ),
-                TextSpan(
                   text: "Sertifika",
                   style: TextStyle(
                       color: Color(0xfff5f5f5),
@@ -167,7 +146,7 @@ class EducationPage extends StatelessWidget {
                         border: Border.all(color: const Color(0xff444444)),
                         borderRadius:
                             const BorderRadius.all(Radius.circular(20))),
-                    height: 90,
+                    height: 100,
                     width: 300,
                     child: Row(
                       children: [
@@ -178,7 +157,7 @@ class EducationPage extends StatelessWidget {
                                 bottomLeft: Radius.circular(20)),
                             color: Color(0xff444444),
                           ),
-                          height: 90,
+                          height: 100,
                           width: 80,
                           child: const Center(
                             child: Text("Butgem"),

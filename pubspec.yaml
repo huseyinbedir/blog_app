@@ -40,6 +40,7 @@ dependencies:
   url_launcher: ^6.1.5
   carousel_slider: ^4.1.1
   http: ^0.13.5
+  shared_preferences: ^2.0.15
 
 dev_dependencies:
   flutter_test:
@@ -76,6 +77,32 @@ flutter:
      - assets/img/react.png
      - assets/img/dart.png
      - assets/img/sql.png
+     - assets/project/web/volkansaglam/volkansaglam1.png
+     - assets/project/web/volkansaglam/volkansaglam2.png
+     - assets/project/web/volkansaglam/volkansaglam3.png
+     - assets/project/web/volkansaglam/volkansaglam4.png
+     - assets/project/web/bayramoglu/bayramoglu.png
+     - assets/project/web/wi/wi.png
+     - assets/project/mobile/b2b/payment.png
+     - assets/project/mobile/b2b/product_detail.png
+     - assets/project/mobile/b2b/product_status.png
+     - assets/project/mobile/b2b/products.png
+     - assets/project/mobile/cetvel/cetvel.jpg
+     - assets/project/mobile/cetvel/cetvel2.jpg
+     - assets/project/mobile/cetvel/cetvel4.jpg
+     - assets/project/mobile/cetvel/cetvel5.jpg
+     - assets/project/mobile/wiradius/Frame1.png
+     - assets/project/mobile/wiradius/Frame4.png
+     - assets/project/mobile/wiradius/Frame6.png
+     - assets/project/mobile/wiradius/Frame8.png
+     - assets/project/mobile/xrealnet/xrealnet_3.png
+     - assets/project/mobile/xrealnet/xrealnet_4.png
+     - assets/project/mobile/xrealnet/xrealnet_5.png
+     - assets/cv/cv.pdf
+     - assets/img/myimage.jpg
+
+     
+     
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

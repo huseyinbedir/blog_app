@@ -1,14 +1,9 @@
-import 'dart:convert';
-import 'dart:developer';
-import 'dart:html';
-
 import 'package:blog_app/core/cubit/navigation_cubit.dart';
 import 'package:blog_app/core/navigation/router_const.dart';
 import 'package:blog_app/core/ui/my_icons_set_icons.dart';
 import 'package:blog_app/production/user_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:http/http.dart' as http;
 
 class HomeDesktop extends StatelessWidget {
   const HomeDesktop({super.key});
@@ -37,7 +32,7 @@ class HomeDesktop extends StatelessWidget {
   SizedBox contentRow(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width - 300,
-      height: MediaQuery.of(context).size.height - 200,
+      height: MediaQuery.of(context).size.height - 100,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -52,7 +47,7 @@ class HomeDesktop extends StatelessWidget {
                       topRight: Radius.circular(30),
                       bottomRight: Radius.circular(30),
                       bottomLeft: Radius.circular(30))),
-              height: 750,
+              height: 900,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -63,7 +58,7 @@ class HomeDesktop extends StatelessWidget {
                     flex: 1,
                     child: AnimatedContainer(
                       duration: const Duration(seconds: 5),
-                      height: 750,
+                      height: 900,
                       child: BlocBuilder<NavigationCubit, Widget>(
                           builder: (context, state) {
                         return state;
@@ -134,7 +129,7 @@ class HomeDesktop extends StatelessWidget {
           color: BlocProvider.of<NavigationCubit>(context, listen: true)
                       .rootName ==
                   root
-              ? Colors.tealAccent
+              ? const Color(0xff04b4e0)
               : const Color(0xffafb0b1),
         ));
   }

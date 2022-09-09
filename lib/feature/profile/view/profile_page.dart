@@ -32,13 +32,6 @@ class ProfilePage extends StatelessWidget {
               RichText(
                   text: const TextSpan(children: [
                 TextSpan(
-                  text: "# ",
-                  style: TextStyle(
-                      color: Color(0xff04b4e0),
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold),
-                ),
-                TextSpan(
                   text: "Hakkımda",
                   style: TextStyle(
                       color: Colors.white,
@@ -66,13 +59,6 @@ class ProfilePage extends StatelessWidget {
               RichText(
                 text: const TextSpan(children: [
                   TextSpan(
-                    text: "# ",
-                    style: TextStyle(
-                        color: Color(0xff04b4e0),
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  TextSpan(
                     text: "Yetenekler",
                     style: TextStyle(
                         color: Colors.white,
@@ -87,7 +73,7 @@ class ProfilePage extends StatelessWidget {
               SizedBox(
                   height: 110,
                   child: ListView.builder(
-                    padding: EdgeInsets.all(0),
+                    padding: const EdgeInsets.all(0),
                     itemBuilder: (context, index) {
                       return Container(
                         margin: const EdgeInsets.only(right: 50),
@@ -106,13 +92,6 @@ class ProfilePage extends StatelessWidget {
               ),
               RichText(
                 text: const TextSpan(children: [
-                  TextSpan(
-                    text: "# ",
-                    style: TextStyle(
-                        color: Color(0xff04b4e0),
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold),
-                  ),
                   TextSpan(
                     text: "Hobiler",
                     style: TextStyle(

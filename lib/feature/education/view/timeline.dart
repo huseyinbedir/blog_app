@@ -63,6 +63,7 @@ class Timeline extends StatelessWidget {
       primary: primary,
       itemBuilder: (context, index) {
         final child = children[index];
+        // ignore: no_leading_underscores_for_local_identifiers
         final _indicators = indicators;
 
         Widget? indicator;
