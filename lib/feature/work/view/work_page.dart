@@ -1,4 +1,3 @@
-import 'package:blog_app/core/helper/helper_widgets.dart';
 import 'package:blog_app/feature/work/view/work_detail.dart';
 import 'package:flutter/material.dart';
 
@@ -162,6 +161,7 @@ class _WorkPageState extends State<WorkPage> {
 
   _app(BuildContext context, List<Map> app) {
     return GridView.extent(
+        padding: const EdgeInsets.all(0),
         maxCrossAxisExtent: 220.0,
         crossAxisSpacing: 20.0,
         mainAxisSpacing: 20.0,
